@@ -2,7 +2,7 @@ name: sync
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/15 0-16,22-23 * * *'
+    - cron: '15 0-16,22-23 * * *'
   watch:
     types: started
   repository_dispatch:
@@ -54,7 +54,7 @@ jobs:
         ssh-keyscan gitee.com > ~/.ssh/known_hosts
         cd scripts
         git remote add gitee "${{ secrets.GITEEREPO }}"
-        git push -u gitee master >/dev/null 2>&1
+        git push -u gitee master -f >/dev/null 2>&1
     - name: Delete Workflow Runs
       uses: Mattraks/delete-workflow-runs@main
       with:
