@@ -28,7 +28,7 @@ jobs:
         echo -e "${{ secrets.EVINEKEY }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan gitee.com > ~/.ssh/known_hosts
-	      git clone -b master git@gitee.com:evine/jd_shell.git jd_shell
+        git clone -b master git@gitee.com:evine/jd_shell.git jd_shell
     - name:  Push to GitHub
       uses: ad-m/github-push-action@master
       with:
