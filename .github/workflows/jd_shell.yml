@@ -34,7 +34,7 @@ jobs:
       with:
         directory: jd_shell
         repository: szqdong/jd_shell
-        github_token: ${{ secrets.GITHUBKEY }}
+        github_token: ${{ github.token }}
         force: true
         branch: master
     - name: Push to Gitee
