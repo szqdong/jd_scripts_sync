@@ -30,7 +30,7 @@ jobs:
         ssh-keyscan gitee.com > ~/.ssh/known_hosts
 	git clone -b master git@gitee.com:evine/jd_shell.git jd_shell
 
-    - name: Push to GitHub
+   - name:  Push to GitHub
       uses: ad-m/github-push-action@master
       with:
         directory: jd_shell
