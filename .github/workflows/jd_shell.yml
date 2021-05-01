@@ -33,8 +33,8 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         directory: jd_shell
-        repository: szqdong/jd_shell
-        github_token: ${{ github.token }}
+        repository: szqdong/jd_shell.git
+        github_token: ${{ secrets.GITHtokenUBKEY }}
         force: true
         branch: master
     - name: Push to Gitee
@@ -42,7 +42,7 @@ jobs:
       with:
         directory: jd_shell
         repository: szqdong/jd_shell
-        github_token: ${{ secrets.GITEEKEY }}
+        github_token: ${{ github.GITEE_TOKEN }}
         force: true
         branch: master
     - name: Delete Workflow Runs
