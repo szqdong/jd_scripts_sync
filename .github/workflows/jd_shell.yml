@@ -32,16 +32,18 @@ jobs:
     - name:  Push to GitHub
       uses: ad-m/github-push-action@master
       with:
-        #directory: jd_shell
+        directory: jd_shell
         repository: jd_shell
         github_token: ${{ secrets.GITHUBKEY }}
+        force: true
         branch: master
     - name: Push to Gitee
       uses: ad-m/github-push-action@master
       with:
-        #directory: jd_shell
+        directory: jd_shell
         repository: jd_shell
         github_token: ${{ secrets.GITEEKEY }}
+        force: true
         branch: master
     - name: Delete Workflow Runs
       uses: Mattraks/delete-workflow-runs@main
