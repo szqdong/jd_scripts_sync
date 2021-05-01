@@ -38,13 +38,15 @@ jobs:
         force: true
         branch: master
     - name: Push to Gitee
-      uses: ad-m/github-push-action@master
-      with:
-        directory: jd_shell
-        repository: szqdong/jd_shell
-        github_token: ${{ secrets.GITEE_TOKEN }}
-        force: true
-        branch: master
+      run: |
+        echo -e "${{ secrets.GITEEKEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan gitee.com > ~/.ssh/known_hosts
+        cd jd_shell
+        git remote add gitee "${{ secrets.GITEE_JD_SHELL_REPO }}"
+        git push -u gitee master -f >/dev/null 2>&1
+
+
     - name: Delete Workflow Runs
       uses: Mattraks/delete-workflow-runs@main
       with:
